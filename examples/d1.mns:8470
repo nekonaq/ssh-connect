@@ -1,0 +1,13 @@
+Host *
+  ServerAliveInterval 60
+  ServerAliveCountMax 3
+  TCPKeepAlive no
+  ForwardAgent yes
+
+Host ssh-remote
+  LocalForward 8470 localhost:8470
+  HostName d1.mns.nekonaq.com
+  User mnsadm
+  IdentityFile /home/nak/.ssh/2186-219/id_ed25519
+  UserKnownHostsFile /dev/null
+  StrictHostKeyChecking no

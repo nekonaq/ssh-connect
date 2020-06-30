@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+prog="${0##*/}"
+me="$( realpath "$0" )"
+app_dir="$( realpath "${me%/*}/.." )"
+
+main() {
+  set -x
+  ansible-playbook "$me.yml" -i localhost, -c local -e app_dir="$app_dir"
+}      
+
+main "$@"

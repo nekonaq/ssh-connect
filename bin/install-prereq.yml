@@ -1,0 +1,14 @@
+---
+- hosts: localhost
+  gather_subset: min
+  become: true
+  tasks:
+    - include_vars: "{{ item }}"
+      with_first_found:
+        - "{{ app_dir }}/config/install-prereq/{{ ansible_distribution | lower }}.yml"
+        - "{{ app_dir }}/config/install-prereq/{{ ansible_distribution | lower }}{{ ansible_distribution_version }}.yml"
+    - package:
+        name: "{{ required_packages | flatten }}"
+
+  vars:
+    ansible_python_interpreter: /usr/bin/python3.6

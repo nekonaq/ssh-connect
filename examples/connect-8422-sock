@@ -1,0 +1,12 @@
+# -*- conf -*-
+# Example:
+#  systemctl start ssh-connect@d1.mns:8422-socks
+#
+#  ssh -F connect-8422-sock main
+#  curl --proxy socks5://localhost:8422 localhost:8470
+#
+Host *
+  ProxyCommand nc -X 5 -x 127.0.0.1:8422 %h %p
+  User mnsadm
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null

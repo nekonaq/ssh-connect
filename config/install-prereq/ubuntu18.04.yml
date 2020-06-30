@@ -1,0 +1,5 @@
+---
+required_packages:
+  - jq
+  - [python3-dev, libyaml-dev, libpcre3-dev]
+  - autossh

@@ -1,0 +1,17 @@
+# -*- conf -*-
+[Unit]
+Description=ssh-connect service for %i
+Requires=sshd.service
+StartLimitIntervalSec=5
+StartLimitBurst=3
+
+[Service]
+WorkingDirectory=/etc/default/ssh-connect
+
+ExecStart=/usr/bin/autossh -nNT -F %i ssh-remote
+
+TimeoutStartSec=60s
+# Restart=always
+
+[Install]
+WantedBy=multi-user.target

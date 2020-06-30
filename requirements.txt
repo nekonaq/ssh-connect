@@ -1,0 +1,4 @@
+# python~=3.6.9
+flake8
+yq
+ansible~=2.8.0
